@@ -1,0 +1,44 @@
+$ligthColor: #ffffff;
+$darkBack:  hsl(207, 26%, 17%);
+$ligthText: hsl(0, 0%, 100%);
+
+.header{
+    position: fixed;
+    z-index: 100 !important;
+    background-color: $ligthColor;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1{
+        margin-left: 3rem;
+    }
+    button{
+        margin-right: 3rem;
+        display: flex;
+        align-items: center;
+        width: 8rem;
+        justify-content: space-around;
+        border: none;
+        background-color: $ligthColor;
+        font-size: 1.1rem;
+        cursor: pointer;
+        font-family: inherit;
+        svg{
+            font-size: 1.3rem;
+        }
+
+    }
+}
+.dark-theme{
+    background-color: $darkBack;
+    color: $ligthColor;
+    button{
+        background-color: $darkBack;
+        color: $ligthColor;
+    }
+}
