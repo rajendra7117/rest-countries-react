@@ -1,3 +1,6 @@
+$ligthColor: #ffffff;
+$darkBack:  hsl(207, 26%, 17%);
+$ligthText: hsl(0, 0%, 100%);
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,4 +17,12 @@ code {
 
 body{
   overflow-x: hidden;
+}
+.dark-theme{
+  background-color: $darkBack;
+  color: $ligthColor;
+  button{
+      background-color: $darkBack;
+      color: $ligthColor;
+  }
 }

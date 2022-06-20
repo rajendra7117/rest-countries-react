@@ -34,11 +34,25 @@ $ligthText: hsl(0, 0%, 100%);
 
     }
 }
+
 .dark-theme{
     background-color: $darkBack;
     color: $ligthColor;
     button{
         background-color: $darkBack;
         color: $ligthColor;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .header{
+        width: 100vw;
+        h1{
+            margin-left: 0;
+            font-size: 1.5rem;
+        }
+        button{
+            width: 6rem;
+        }
     }
 }
