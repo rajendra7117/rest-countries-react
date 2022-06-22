@@ -1,16 +1,17 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { countryDetailsSliceActions } from '../../store/CountryDetailsSlice'
 const Country = ({country}) => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const darkTheme = useSelector((state) => state.theme.darkTheme)
 const showCountryDetails = e => {
     history.push(`/${typeof country.name==="object" ? country.name.common : country.name}`)
     dispatch(countryDetailsSliceActions.showCountryDetails(country))
 }
   return (
-    <div className='country' onClick={showCountryDetails}>
+    <div className={`country ${darkTheme ? 'dark-theme' : ''}`} onClick={showCountryDetails}>
         <div className='img-sec'>
             <img src={country.flags.png}alt="flag-img" />
         </div>

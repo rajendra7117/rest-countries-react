@@ -48,11 +48,17 @@ $ligthText: hsl(0, 0%, 100%);
     .header{
         width: 100vw;
         h1{
-            margin-left: 0;
-            font-size: 1.5rem;
+            margin-left: 0.2rem;
+            font-size: 1.2rem;
         }
         button{
-            width: 6rem;
+            width: auto;
+            margin-right: 0.2rem;
+            display: flex;
+            flex-direction: row;
+            svg{
+                margin-right: 0.4rem;
+            }
         }
     }
 }

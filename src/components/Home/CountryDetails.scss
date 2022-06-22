@@ -1,3 +1,5 @@
+@import 'Variables';
+
 .country-details {
   width: 85%;
   height: 100%;
@@ -12,11 +14,11 @@ position: relative;
     position: absolute;
     color: #000;
  
-    top: 22vh;
-    left: 20vw;
-    width: 10rem;
+    top: 12vh;
+    left: 2vw;
+    width: 7rem;
     background-color: #ffffff;
-    border: 1px solid #000;
+  border: none !important;
     padding: 0.4rem;
     border-radius: 0.2rem;
     text-align: center;
@@ -25,7 +27,8 @@ position: relative;
     justify-content: center;
     font-weight: 700;
     cursor: pointer;
-
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-weight: 600;
     svg{
       font-size: 1.2rem;
       margin: 0;
@@ -37,8 +40,7 @@ position: relative;
     width: 30%;
     margin-left: 1rem;
     height: 20rem;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border: 1px solid #ffff;
+   
     img {
       height: 100%;
       width: 28rem;
@@ -128,3 +130,89 @@ position: relative;
 
 }
 
+.dark-theme{
+  .back-button{
+    background-color: $veryDarkBlue;
+    color: #fff;
+  }
+}
+
+@media screen and (max-width:560px) {
+  .country-details{
+    padding: 0;
+ width: 100%;
+ height: auto !important;
+ margin-bottom: 0;
+    flex-direction: column;
+    
+    .back-button{
+      top: 2vh
+    }
+    .flag-div{
+      margin-top: 4rem;
+      margin-left: 0 !important;
+      width: 95%;
+      img{
+        width: 90%;
+      }
+    }
+    .details-container{
+      flex-direction: column;
+      width: 360px !important;
+      height: auto;
+      margin-left: 0;
+      .sec-1{
+        padding: 0;
+        flex-direction: column;
+        width: 360px !important;
+
+        text-align: left;
+        align-items: flex-start;
+       .part-1, .part-2{
+        width: 100%;
+        padding-left: 1rem;
+       }
+       .part-1{
+        height: auto !important;
+       
+        span{
+          h1{
+            margin: 2rem 0 !important;
+          }
+        }
+       
+       }
+       .part-2{
+        margin-top: 1rem;
+       }
+       
+       
+      }
+      .sec-2{
+        margin-left: 0;
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-start;
+        height: auto;
+        margin-top: 1rem;
+        h4{
+          margin-left: 1rem;
+        }
+        div{
+          display: flex;
+          
+          width: 95%;
+         flex-wrap: wrap !important;
+         min-height: 5rem;
+         max-height: 12rem;
+         padding: 0.5rem;
+         span{
+          height: 1.5rem !important;
+         }
+        }
+      }
+    }
+   
+   
+  }
+}

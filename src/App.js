@@ -1,5 +1,5 @@
 
-import './App.css';
+import './App.scss';
 import Header from './components/Header/Header';
 import HomePage from './components/Home/HomePage';
 import {Route, Switch, Redirect} from 'react-router-dom'

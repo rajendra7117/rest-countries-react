@@ -4,10 +4,21 @@
 - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
 - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
 - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%) */
+$ligthColor: #ffffff;
+$darkBlack:  hsl(207, 26%, 17%);
+$ligthText: hsl(0, 0%, 100%);
 .App {
   text-align: center;
   font-family: 'Nunito Sans', sans-serif;
   overflow-x: hidden;
-  
+ height: 100vh; 
 }
 
+.dark-theme{
+  background-color: $darkBlack !important;
+  color: $ligthColor !important;
+  button{
+      background-color: $darkBlack;
+      color: $ligthColor;
+  }
+}

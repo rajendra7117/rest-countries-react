@@ -1,5 +1,5 @@
 $ligthColor: #ffffff;
-$darkBack:  hsl(207, 26%, 17%);
+$darkBlack:  hsl(207, 26%, 17%);
 $ligthText: hsl(0, 0%, 100%);
 body {
   margin: 0;
@@ -19,10 +19,10 @@ body{
   overflow-x: hidden;
 }
 .dark-theme{
-  background-color: $darkBack;
-  color: $ligthColor;
+  background-color: $darkBlack !important;
+  color: $ligthColor !important;
   button{
-      background-color: $darkBack;
+      background-color: $darkBlack;
       color: $ligthColor;
   }
 }

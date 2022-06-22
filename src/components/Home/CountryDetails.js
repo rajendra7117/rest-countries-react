@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./CountryDetails.scss";
 import Wrapper from "../Layout/Wrapper";
 import { useSelector } from "react-redux";
-import {IoMdArrowBack} from 'react-icons/io'
+import { IoMdArrowBack } from "react-icons/io";
 import { useHistory } from "react-router-dom";
 
 const CountryDetails = () => {
   const country = useSelector((state) => state.countryDetails.countryDetails);
   const darkTheme = useSelector((state) => state.theme.darkTheme);
   const [borderArray, setBorderArray] = useState([]);
-  const history = useHistory()
+  const history = useHistory();
   console.log(country);
 
   let borders;
@@ -33,9 +33,11 @@ const CountryDetails = () => {
   console.log(borderArray);
   return (
     <Wrapper>
-      
       <div className={`country-details ${darkTheme ? "dark-theme" : ""}`}>
-      <button className="back-button" onClick={() => history.push('/')}><IoMdArrowBack />back</button>
+        <button className="back-button" onClick={() => history.push("/")}>
+          <IoMdArrowBack />
+          Back
+        </button>
         <div className="flag-div">
           <img src={country.flags.png} alt="flag" />
         </div>
@@ -94,11 +96,13 @@ const CountryDetails = () => {
             </div>
             <div className="sec-2">
               <h4>Border Countries: </h4>
+              <div>
               {borderArray?.map((border) => (
                 <span className="border" key={border.name.common}>
                   {border.name.common}
                 </span>
               ))}
+              </div>
             </div>
           </div>
         </div>
