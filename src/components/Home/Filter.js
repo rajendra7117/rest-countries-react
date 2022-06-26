@@ -3,6 +3,7 @@ import {FiChevronDown} from 'react-icons/fi'
 import { useDispatch, useSelector } from 'react-redux'
 import { regionSliceActions } from '../../store/RegionSlice'
 import { useHistory, useLocation } from 'react-router-dom'
+import './Filter.scss'
 const Filter = () => {
     const [showOptions, setShowOptions] = useState(false)
     const history =useHistory()

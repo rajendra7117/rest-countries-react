@@ -1,0 +1,44 @@
+@import 'Variables';
+
+.search {
+    width: auto;
+    height: auto;
+    form {
+      width: 28rem;
+      position: relative;
+      box-shadow: $boxShadow1Color 0px 7px 29px 0px;
+      padding: 1rem;
+      border-radius: 0.3rem;
+      outline: none;
+
+      height: 2rem;
+      border: 1px solid $white;
+      svg {
+        position: absolute;
+        top: 34%;
+        left: 2.2rem;
+        font-size: 1.5rem;
+        color: $darkGray;
+      }
+      input {
+        width: 70%;
+
+        border: none;
+        outline: none;
+        height: 100%;
+        padding: 0.1rem;
+        padding-left: 0;
+        font-family: inherit;
+      }
+    }
+    form input::placeholder {
+      color: $darkGray;
+      font-size: 16px;
+    }
+  }
+  
+
+  .dark-theme input {
+    background-color: $veryDarkBlue;
+    color: $white;
+  }

@@ -2,12 +2,12 @@
 
 .country-details {
   width: 85%;
-  height: 100%;
+  height: 100vh;
   padding: 1rem;
   display: flex;
   flex-direction: row;
   align-self: center;
-  margin: 2rem auto;
+  
 position: relative;
   align-items: center;
   .back-button {
@@ -38,7 +38,7 @@ position: relative;
   }
   .flag-div {
     width: 30%;
-    margin-left: 1rem;
+    margin-left: 4rem;
     height: 20rem;
    
     img {
@@ -123,6 +123,7 @@ position: relative;
             margin-right: 0.1rem;
             border-radius: 0.3rem;
             text-align: center;
+            cursor: pointer;
             
         }
     }

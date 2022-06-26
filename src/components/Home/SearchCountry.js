@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { IoMdSearch } from "react-icons/io";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { searchResultsSliceActions } from "../../store/SearchResultsSlice";
 import { useLocation } from "react-router-dom";
+import './SearchCountry.scss'
 const SearchCountry = ({ searchStart, searchEnd }) => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const [enteredInput, setEnteredInput] = useState("");
+  const [blurState, setBlurState] = useState(false)
   const history = useHistory();
   const darkTheme = useSelector((state) => state.theme.darkTheme)
 
@@ -23,11 +24,16 @@ const SearchCountry = ({ searchStart, searchEnd }) => {
             return
         }
        const data = await res.json()
+     
+       if(data.length===0){
+        dispatch(searchResultsSliceActions.setStatus('error'))
+        return
+       }
       dispatch(searchResultsSliceActions.addResults(data))
       }
       catch(err){
        
-          console.log('sorry something went wrong')
+          
       }
       
   }
@@ -35,21 +41,30 @@ const SearchCountry = ({ searchStart, searchEnd }) => {
     setEnteredInput(e.target.value);
     history.push(`/home?search=${e.target.value}`);
   };
+
+  const blurHandler = e => {
+    setBlurState(true)
+  }
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(searchResultsSliceActions.addResults([]));
 
       if (enteredInput !== "") {
         dispatch(searchResultsSliceActions.setStatus("loading"));
-        searchStart();
+    
         api()
         
       }
+     if(blurState && enteredInput===""){
+      console.log('error')
+      dispatch(searchResultsSliceActions.setStatus('error'))
+     }
+    
     }, 1000);
     return () => {
       clearTimeout(timer);
     };
-  }, [enteredInput]);
+  }, [enteredInput, blurState]);
 
   useEffect(() => {
     if (queryParams.has("search")) {
@@ -67,6 +82,7 @@ const SearchCountry = ({ searchStart, searchEnd }) => {
           type="text"
           placeholder="Search for a country..."
           onChange={handleInput}
+          onBlur={blurHandler}
         />
       </form>
     </div>

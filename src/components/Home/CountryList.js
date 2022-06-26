@@ -1,6 +1,8 @@
 import React, { memo, useState, useEffect } from "react";
 import Country from "./Country";
 import { useSelector } from "react-redux";
+import './CountryList.scss'
+import uuid from 'react-uuid'
 
 const CountryList = ({ list }) => {
   const region = useSelector((state) => state.region.selectedRegion);
@@ -35,17 +37,16 @@ const CountryList = ({ list }) => {
         observer.observe(entry);
       });
     }
-  }, [list, countryList]);
- 
+  }, [list, countryList, darkTheme]);
 
   return (
     <div className={`countries-list ${darkTheme ? 'dark-theme' : ''}`}>
       {region === '' || null || region==='All'
         ? list?.map((country) => (
-            <Country key={Math.random(0, 1000000)} country={country} />
+            <Country key={uuid()} country={country} />
           ))
         : countryList?.map((country) => (
-            <Country key={country.numericCode} country={country} />
+            <Country key={uuid()} country={country} />
           ))}
     </div>
   );

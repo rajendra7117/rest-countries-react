@@ -1,11 +1,9 @@
-$ligthColor: #ffffff;
-$darkBack:  hsl(207, 26%, 17%);
-$ligthText: hsl(0, 0%, 100%);
+@import '../Home/Variables.sass';
 
 .header{
     position: fixed;
     z-index: 100 !important;
-    background-color: $ligthColor;
+    background-color: $white;
     top: 0;
     left: 0;
     width: 100%;
@@ -14,9 +12,13 @@ $ligthText: hsl(0, 0%, 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    h1{
+    a{
+        text-decoration: none;
+        color: $darkBlack;
         margin-left: 3rem;
+        font-size: 1.5rem;
     }
+  
     button{
         margin-right: 3rem;
         display: flex;
@@ -24,7 +26,7 @@ $ligthText: hsl(0, 0%, 100%);
         width: 8rem;
         justify-content: space-around;
         border: none;
-        background-color: $ligthColor;
+        background-color: $white;
         font-size: 1.1rem;
         cursor: pointer;
         font-family: inherit;
@@ -36,18 +38,21 @@ $ligthText: hsl(0, 0%, 100%);
 }
 
 .dark-theme{
-    background-color: $darkBack;
-    color: $ligthColor;
+    background-color: $darkBlack;
+    color: $white;
+    a{
+        color: $white;
+    }
     button{
-        background-color: $darkBack;
-        color: $ligthColor;
+        background-color: $darkBlue;
+        color: $white;
     }
 }
 
 @media screen and (max-width: 560px) {
     .header{
         width: 100vw;
-        h1{
+        a{
             margin-left: 0.2rem;
             font-size: 1.2rem;
         }

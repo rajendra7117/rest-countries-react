@@ -1,6 +1,7 @@
 .wrapper{
     margin-top: 6rem;
     width: 100%;
-    height: auto;
+    min-height: 100vh;
+    max-height: auto;
     z-index: 1;
 }

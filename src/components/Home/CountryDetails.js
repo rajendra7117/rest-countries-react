@@ -4,13 +4,16 @@ import Wrapper from "../Layout/Wrapper";
 import { useSelector } from "react-redux";
 import { IoMdArrowBack } from "react-icons/io";
 import { useHistory } from "react-router-dom";
+import uuid from "react-uuid";
+import Border from "./Border";
 
 const CountryDetails = () => {
   const country = useSelector((state) => state.countryDetails.countryDetails);
+
   const darkTheme = useSelector((state) => state.theme.darkTheme);
   const [borderArray, setBorderArray] = useState([]);
   const history = useHistory();
-  console.log(country);
+
 
   let borders;
   country.borders?.forEach((border) => {
@@ -24,13 +27,19 @@ const CountryDetails = () => {
       return;
     }
     const data = await res.json();
-
-    setBorderArray(data);
+      if(data.length>6){
+        setBorderArray(data.splice(0, 6))
+        
+      }
+      else{
+        setBorderArray(data);
+      }
+    
   };
   useEffect(() => {
     fetchBorders();
   }, []);
-  console.log(borderArray);
+
   return (
     <Wrapper>
       <div className={`country-details ${darkTheme ? "dark-theme" : ""}`}>
@@ -72,12 +81,12 @@ const CountryDetails = () => {
               <div className="part-2">
                 <span>
                   <h4>Top Level Domain:</h4>
-                  {country.topLevelDomain[0]}
+                  {'topLevelDomain' in country ? country.topLevelDomain[0] : ''}
                 </span>
                 <span>
                   <h4>Currencies:</h4>
-                  {country.currencies?.map((cur, index) => (
-                    <span key={cur.name}>
+                  {country.currencies.length>0 && country.currencies.map((cur, index) => (
+                    <span key={uuid()}>
                       {cur.name}
                       {`${index !== country.currencies.length - 1 ? "," : ""}`}
                     </span>
@@ -85,8 +94,8 @@ const CountryDetails = () => {
                 </span>
                 <span>
                   <h4>Languages:</h4>
-                  {country.languages.map((lan, index) => (
-                    <span key={lan.name}>
+                  {country.languageslength>0 && country.languages.map((lan, index) => (
+                    <span key={uuid()}>
                       {lan.name}
                       {index !== country.languages.length - 1 ? "," : ""}
                     </span>
@@ -98,9 +107,7 @@ const CountryDetails = () => {
               <h4>Border Countries: </h4>
               <div>
               {borderArray?.map((border) => (
-                <span className="border" key={border.name.common}>
-                  {border.name.common}
-                </span>
+               <Border key={uuid()} border={border}/>
               ))}
               </div>
             </div>
@@ -111,4 +118,4 @@ const CountryDetails = () => {
   );
 };
 
-export default CountryDetails;
+export default React.memo(CountryDetails);
