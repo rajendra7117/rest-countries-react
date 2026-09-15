@@ -38,6 +38,7 @@ const CountryDetails = () => {
   };
   useEffect(() => {
     fetchBorders();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
