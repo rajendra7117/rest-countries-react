@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import './SearchCountry.scss'
 const SearchCountry = ({ searchStart, searchEnd }) => {
   const location = useLocation();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const queryParams = new URLSearchParams(location.search);
   const [enteredInput, setEnteredInput] = useState("");
   const [blurState, setBlurState] = useState(false)
@@ -64,6 +65,7 @@ const SearchCountry = ({ searchStart, searchEnd }) => {
     return () => {
       clearTimeout(timer);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enteredInput, blurState]);
 
   useEffect(() => {

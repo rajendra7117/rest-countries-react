@@ -17,7 +17,8 @@ const CountryList = ({ list }) => {
     if(region==='All'){
       setCountryList(list)
     }
-   
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [region]);
 
   useEffect(() => {
